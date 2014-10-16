@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+
+    <script src="cordova.js"></script>
+    <script src="kendo/js/jquery.min.js"></script>
+    <script src="kendo/js/kendo.mobile.min.js"></script>
+    
+</head>
+<body>
+    <!--trail1
+    <input id="colorPicker">
+    
+    <input id="shapePicker" data-role="combobox" data-source='["Circle","Rectangle","Oval","Traingle","Square"]'/>
+    
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#colorPicker").kendoComboBox({
+                dataSource:["Blue","Green","Yellow","Red","Pink"]
+            });
+            
+            kendo.init($("#shapePicker"));
+        });
+    </script>
+-->
+    <!--trail2-->
+    
+    <div id="cars">
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var cars=[
+                {year:1990,make:"Ferarri",model:"California"},
+                {year:1980,make:"meserdiz",model:"458 Ialia"},
+                {year:1975,make:"Fords",model:"Aventador"},
+                {year:2002,make:"Hundai",model:"i10"},
+                {year:1990,make:"Ferarri",model:"California"},
+                {year:1980,make:"meserdiz",model:"458 Ialia"},
+                {year:1975,make:"Fords",model:"Aventador"},
+                {year:2002,make:"Hundai",model:"i10"}
+            ];
+                
+            var carsDataSource = new kendo.data.DataSource({data:cars,pageSize:6,sort:{field:"year",dir:"asc"}});
+                carsDataSource.read();
+                
+                $("#cars").kendoGrid({
+                dataSource:carsDataSource
+                
+                columns:[
+                {field:"year",title:"Year"},
+                {field:"make",title:"Make"},
+                {field:"model",title:"Model"},
+                {command:["edit","destroy"]}
+            ]
+            
+            scrollable:false,
+            pageable:true,
+            sortable:true,
+            groupable:true,
+            filterable:true,
+            editable:"inline"
+                
+                });
+                });
+    </script>
+    
+</body>
+</html>
