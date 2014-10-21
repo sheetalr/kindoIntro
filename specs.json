@@ -1,0 +1,23 @@
+[
+{
+	car:"mercedes",
+	brakeHorsePower: 560,
+	topSpeed: 192, 
+	zeroToSixty: 3.4, 
+	basePrice:203780
+},
+{
+	car:"Ferrari",
+	brakeHorsePower: 532,
+	topSpeed: 202,
+	zeroToSixty: 3.0,
+	basePrice:200480
+},
+{
+	car:"horseone",
+	brakeHorsePower: 620,
+	topSpeed: 219,
+	zeroToSixty: 3.3,
+	basePrice:254670
+	}
+]

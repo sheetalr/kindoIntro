@@ -1,0 +1,75 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mobile App</title>
+<link href="content/kendo.common.min.css" rel="stylesheet" type="text/css"/>
+<link href="content/kendo.mobile.all.min.css"  rel="stylesheet" type="text/css" />
+
+
+<script src="scripts/jquery.min.js" type="text/javascript"></script>
+<script src="scripts/kendo.mobile.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+	
+	<div id="mainView" data-role="view" data-title="Main View">
+	Welcome
+	<a href="#otherView" data-role="button">go to other view</a>
+	<a href="mobileViewDemo.html">RemoteViewDemo</a>
+	<a id="longProcess" data-role="button">loading</a>
+	</div>
+
+	
+
+	<div data-role="layout" data-id="mainLayout">
+	<div data-role="header">
+	<div data-role="navbar">
+	<span data-role="view-title"></span>
+	</div>
+	</div>
+	</div>
+
+	<div id="otherView" data-role="view" data-title="Other View">
+	Number:<input type:"number"/>
+	select: <select>
+	<option value="mer">mer</option>
+	<option value="fer">fer</option>
+	<option value="icon">icon</option>
+	</select>
+<a href="splitViewDemo.html">splitViewDemo</a>
+	</div>
+
+
+	<!--<script>
+	window.Application=new kendo.mobile.Application(document.body);
+	</script>-->
+
+	<script>
+	window.app = new kendo.mobile.Application(document.body,{
+		layout:"mainLayout",
+		transition:"fade"
+	});
+	</script>
+<script>
+	$(function(){
+$("#longProcess").bind('click',function(){
+	longProcess();
+});
+	});
+
+	var interval;
+	function longProcess(){
+		var second=2;
+		app.showLoading();
+		interval=setInterval(function(){
+			--second;
+			if(second==0){
+				clearInterval(interval);
+				app.hideLoading();
+			}
+		},1000);
+	}
+</script>
+</body>
+
+</html>
